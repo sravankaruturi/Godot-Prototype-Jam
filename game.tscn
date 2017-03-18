@@ -1,0 +1,17 @@
+[gd_scene format=1]
+
+[node name="master" type="Node2D"]
+
+[node name="player" type="Node2D" parent="."]
+
+[node name="img" type="Sprite" parent="player"]
+
+[node name="col" type="Area2D" parent="player"]
+
+input/pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+
+
