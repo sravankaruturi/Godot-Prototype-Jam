@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=1]
+[gd_scene load_steps=6 format=1]
 
-[ext_resource path="res://player.gd" type="Script" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://master.gd" type="Script" id=1]
+[ext_resource path="res://bullets.gd" type="Script" id=2]
+[ext_resource path="res://player.gd" type="Script" id=3]
+[ext_resource path="res://icon.png" type="Texture" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -10,17 +12,13 @@ radius = 32.0
 
 [node name="master" type="Node2D"]
 
-[node name="player" type="Node2D" parent="."]
-
 script/script = ExtResource( 1 )
-speed = 400.0
-focus_speed = 0.35
 
-[node name="img" type="Sprite" parent="player"]
+[node name="bullets" type="Node2D" parent="."]
 
-texture = ExtResource( 2 )
+script/script = ExtResource( 2 )
 
-[node name="col" type="Area2D" parent="player"]
+[node name="player" type="Area2D" parent="."]
 
 input/pickable = true
 shapes/0/shape = SubResource( 1 )
@@ -30,12 +28,23 @@ gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
 linear_damp = 0.1
 angular_damp = 1.0
+script/script = ExtResource( 3 )
+speed = 400
+focus_speed = 0.35
 
-[node name="circle" type="CollisionShape2D" parent="player/col"]
+[node name="img" type="Sprite" parent="player"]
+
+texture = ExtResource( 4 )
+
+[node name="circle" type="CollisionShape2D" parent="player"]
 
 transform/rot = 90.0
 shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
+
+[connection signal="body_enter_shape" from="player" to="." method="_on_player_body_enter_shape"]
+
+[connection signal="body_exit_shape" from="player" to="." method="_on_player_body_exit_shape"]
 
 

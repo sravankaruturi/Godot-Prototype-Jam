@@ -1,16 +1,18 @@
+export(float) var speed = 400
+export(float) var focus_speed = 0.35
 
 var screen_size
 var center_pos
 var radius
-export(float) var speed = 400
-export(float) var focus_speed = 0.35
+
 
 func _ready():
 	set_process(true)
 	screen_size = get_viewport_rect().size
 	center_pos = screen_size / 2
 	set_pos(center_pos)
-	radius = get_node("col/circle").get_shape().get_radius()
+	radius = get_node("circle").get_shape().get_radius()
+
 
 func _process(delta):
 	var pos = get_pos()
