@@ -16,7 +16,7 @@ func _ready():
 
 func _process(delta):
 	var pos = get_pos()
-	var delta_pos = Vector2(0, 0)
+	var delta_pos = Vector2()
 	
 	if (pos.y >= radius and Input.is_action_pressed("player_up")):
 		delta_pos.y -= 1;
