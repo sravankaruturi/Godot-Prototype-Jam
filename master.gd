@@ -6,7 +6,7 @@ func _ready():
 
 
 func _process(delta):
-	print(hit_bullets.size())
+	pass
 
 
 func _on_player_body_enter_shape( body_id, body, body_shape, area_shape ):

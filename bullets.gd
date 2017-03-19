@@ -1,43 +1,55 @@
-const BULLET_COUNT = 500
+const BULLET_COUNT = 64
 const SPEED_MIN = 20
 const SPEED_MAX = 50
+const ANG_DIFF = 4
+const SPIRAL_DIFF = 6.5
 
 var bullets = []
 var shape
 var texture
+var bullet_size
+var screen_size
 
 
 class Bullet:
 	var pos = Vector2()
 	var speed = 1.0
+	var dir = Vector2()
 	var body = RID()
 
 
 func _draw():
-	var tofs = -texture.get_size()*0.5
 	for b in bullets:
-		draw_texture(texture, b.pos + tofs)
+		draw_texture(texture, b.pos - bullet_size)
 
 # edit me to change where bullets spawn
 func start_pos(index):
-	var pos = Vector2(get_viewport_rect().size * Vector2(randf()*2.0, randf()))
-	pos.x += get_viewport_rect().size.x
+	var pos = Vector2(cos(index * ANG_DIFF), sin(index * ANG_DIFF))
+	print(pos)
+	pos *= (index + 1) * SPIRAL_DIFF
+	pos += pos.normalized() * (screen_size.length() / 4)
+	pos += screen_size / 2
 	return pos
 
 # edit me to change how the bullets move
 func move(b, delta):
-	var width = get_viewport_rect().size.x*2.0
-	b.pos.x -= b.speed * delta
-	if (b.pos.x < -30):
-		b.pos.x += width
+	b.pos += b.dir * b.speed * delta
+	if (b.pos.x > screen_size.x + bullet_size.x):
+		b.pos.x = -bullet_size.x
+	if (b.pos.y > screen_size.y + bullet_size.y):
+		b.pos.y = -bullet_size.y
+	if (b.pos.x < -bullet_size.x):
+		b.pos.x = screen_size.x + bullet_size.x
+	if (b.pos.y < -bullet_size.y):
+		b.pos.y = screen_size.y + bullet_size.y
 
 
 func _ready():
-	texture = preload("res://icon.png")
-	var radius = texture.get_size()*0.5
-	
+	screen_size = get_viewport_rect().size
+	texture = preload("res://icon.png") # change this to anything a circle fits in, the physics will adapt
+	bullet_size = texture.get_size() * 0.5
 	shape = Physics2DServer.shape_create(Physics2DServer.SHAPE_CIRCLE)
-	Physics2DServer.shape_set_data(shape, radius)
+	Physics2DServer.shape_set_data(shape, bullet_size.x)
 	
 	for i in range(BULLET_COUNT):
 		var b = Bullet.new()
@@ -47,6 +59,7 @@ func _ready():
 		Physics2DServer.body_add_shape(b.body, shape)
 		
 		b.pos = start_pos(i)
+		b.dir = -(b.pos - screen_size / 2).normalized()
 		var mat = Matrix32()
 		mat.o = b.pos
 		Physics2DServer.body_set_state(b.body, Physics2DServer.BODY_STATE_TRANSFORM, mat)
