@@ -2,7 +2,7 @@
 
 [ext_resource path="res://master.gd" type="Script" id=1]
 [ext_resource path="res://player.gd" type="Script" id=2]
-[ext_resource path="res://icon.png" type="Texture" id=3]
+[ext_resource path="res://player.png" type="Texture" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -29,6 +29,9 @@ focus_speed = 0.35
 
 [node name="img" type="Sprite" parent="player"]
 
+transform/pos = Vector2( 0.240601, -0.591484 )
+transform/rot = 270.0
+transform/scale = Vector2( 0.257551, 0.263977 )
 texture = ExtResource( 3 )
 
 [node name="circle" type="CollisionShape2D" parent="player"]
@@ -63,7 +66,7 @@ damp_override/angular = -1.0
 
 [node name="bullets" type="Node2D" parent="."]
 
-[node name="scoretext" type="LineEdit" parent="."]
+[node name="scoretextblue" type="LineEdit" parent="."]
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
@@ -74,6 +77,54 @@ margin/top = 5.0
 margin/right = 1019.0
 margin/bottom = 29.0
 placeholder/text = "0"
+placeholder/alpha = 0.6
+focus_mode = 2
+caret/caret_blink = false
+caret/caret_blink_speed = 0.65
+
+[node name="scoretextred" type="LineEdit" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 67.0
+margin/top = 2.0
+margin/right = 125.0
+margin/bottom = 26.0
+placeholder/text = "0"
+placeholder/alpha = 0.6
+focus_mode = 2
+caret/caret_blink = false
+caret/caret_blink_speed = 0.65
+
+[node name="blue" type="LineEdit" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 895.0
+margin/top = 5.0
+margin/right = 953.0
+margin/bottom = 29.0
+text = "Blue"
+placeholder/alpha = 0.6
+focus_mode = 2
+caret/caret_blink = false
+caret/caret_blink_speed = 0.65
+
+[node name="red" type="LineEdit" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 3.0
+margin/top = 2.0
+margin/right = 61.0
+margin/bottom = 26.0
+text = "Red"
 placeholder/alpha = 0.6
 focus_mode = 2
 caret/caret_blink = false

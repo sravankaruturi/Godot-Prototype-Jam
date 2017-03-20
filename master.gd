@@ -1,6 +1,7 @@
-const NUM_BULLETS = 14
+const NUM_BULLETS = 10
 var hit_bullets = []
-var score = 0;
+var scoreblue = 0;
+var scorered = 0;
 
 func _ready():
 	randomize()
@@ -26,14 +27,17 @@ func _process(delta):
 		var check = dir.dot(forward)
 		if (check > 0 and b.is_in_group("bullet A")):
 			print("dead A") # replace with logic for getting hit
-			get_tree().quit()
+			b.free()
+			scorered = scorered + 1
+			print(scorered)
+			get_node("scoretextred").set_text(String(scorered))
 			
 		elif (check <= 0 and b.is_in_group("bullet B")):
 			print("dead B") # replace with logic for getting hit
 			b.free()
-			score = score + 1
-			print(score)
-			get_node("scoretext").set_text(String(score))
+			scoreblue = scoreblue + 1
+			print(scoreblue)
+			get_node("scoretextblue").set_text(String(scoreblue))
 
 
 func _on_player_area_enter( area ):
