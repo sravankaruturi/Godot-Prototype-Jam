@@ -5,6 +5,8 @@ var screen_size
 var speed
 var radius
 var id
+var ctr = 0
+var texture = preload("res://blue1.png")
 
 func _ready():
 	screen_size = get_viewport_rect().size
@@ -26,10 +28,14 @@ func _ready():
 	
 	if (randi() % 2 == 0):
 		add_to_group("bullet A")
+		
 	else:
 		add_to_group("bullet B")
+		get_node("sprite").set_texture(texture)
+	
 	
 	radius = get_node("circle").get_shape().get_radius()
+	
 	
 	set_process(true)
 

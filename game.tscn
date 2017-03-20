@@ -17,7 +17,7 @@ script/script = ExtResource( 1 )
 
 input/pickable = true
 shapes/0/shape = SubResource( 1 )
-shapes/0/transform = Matrix32( -4.37114e-08, -1, 1, -4.37114e-08, 0, 0 )
+shapes/0/transform = Matrix32( -4.37114e-08, -1, 0.999098, -4.36719e-08, -0.0315857, 1.38065e-09 )
 shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -33,7 +33,9 @@ texture = ExtResource( 3 )
 
 [node name="circle" type="CollisionShape2D" parent="player"]
 
+transform/pos = Vector2( -0.0315857, 1.38065e-09 )
 transform/rot = 90.0
+transform/scale = Vector2( 1, 0.999098 )
 shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
@@ -60,6 +62,22 @@ damp_override/linear = -1.0
 damp_override/angular = -1.0
 
 [node name="bullets" type="Node2D" parent="."]
+
+[node name="scoretext" type="LineEdit" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 961.0
+margin/top = 5.0
+margin/right = 1019.0
+margin/bottom = 29.0
+placeholder/text = "0"
+placeholder/alpha = 0.6
+focus_mode = 2
+caret/caret_blink = false
+caret/caret_blink_speed = 0.65
 
 [connection signal="area_enter" from="player" to="." method="_on_player_area_enter"]
 

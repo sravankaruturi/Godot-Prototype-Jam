@@ -9,7 +9,7 @@ var radius
 func _ready():
 	set_process(true)
 	screen_size = get_viewport_rect().size
-	center_pos = screen_size / 2
+	center_pos = screen_size / 10
 	set_pos(center_pos)
 	radius = get_node("circle").get_shape().get_radius()
 
