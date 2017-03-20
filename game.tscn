@@ -66,7 +66,7 @@ damp_override/angular = -1.0
 
 [node name="bullets" type="Node2D" parent="."]
 
-[node name="scoretextblue" type="LineEdit" parent="."]
+[node name="score" type="LineEdit" parent="."]
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
@@ -82,7 +82,7 @@ focus_mode = 2
 caret/caret_blink = false
 caret/caret_blink_speed = 0.65
 
-[node name="scoretextred" type="LineEdit" parent="."]
+[node name="dead" type="LineEdit" parent="."]
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
@@ -92,13 +92,13 @@ margin/left = 67.0
 margin/top = 2.0
 margin/right = 125.0
 margin/bottom = 26.0
-placeholder/text = "0"
+placeholder/text = "3"
 placeholder/alpha = 0.6
 focus_mode = 2
 caret/caret_blink = false
 caret/caret_blink_speed = 0.65
 
-[node name="blue" type="LineEdit" parent="."]
+[node name="scoretext" type="LineEdit" parent="."]
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
@@ -108,13 +108,13 @@ margin/left = 895.0
 margin/top = 5.0
 margin/right = 953.0
 margin/bottom = 29.0
-text = "Blue"
+text = "Score"
 placeholder/alpha = 0.6
 focus_mode = 2
 caret/caret_blink = false
 caret/caret_blink_speed = 0.65
 
-[node name="red" type="LineEdit" parent="."]
+[node name="deadtext" type="LineEdit" parent="."]
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
@@ -124,7 +124,7 @@ margin/left = 3.0
 margin/top = 2.0
 margin/right = 61.0
 margin/bottom = 26.0
-text = "Red"
+text = "Lives"
 placeholder/alpha = 0.6
 focus_mode = 2
 caret/caret_blink = false
