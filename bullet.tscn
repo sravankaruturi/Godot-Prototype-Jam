@@ -33,4 +33,29 @@ transform/pos = Vector2( 1.3068, -0.367622 )
 transform/scale = Vector2( 1.19025, 1.12168 )
 texture = ExtResource( 2 )
 
+[node name="Particles2D" type="Particles2D" parent="."]
+
+z/z = -1
+config/amount = 40
+config/lifetime = 0.5
+config/local_space = false
+params/direction = 0.0
+params/spread = 18.86
+params/linear_velocity = 0.0
+params/spin_velocity = 1.0
+params/orbit_velocity = 0.0
+params/gravity_direction = 0.0
+params/gravity_strength = 0.0
+params/radial_accel = 0.0
+params/tangential_accel = 0.0
+params/damping = 0.0
+params/initial_angle = 0.0
+params/initial_size = 22.36
+params/final_size = 1.0
+params/hue_variation = 0.0
+params/anim_speed_scale = 1.0
+params/anim_initial_pos = 0.0
+randomness/initial_size = 0.52
+color/color = Color( 0.101563, 0.0900574, 0.0900574, 1 )
+
 

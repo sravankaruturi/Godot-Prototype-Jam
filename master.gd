@@ -1,4 +1,4 @@
-const NUM_BULLETS = 8
+const NUM_BULLETS = 20
 var hit_bullets = []
 var score = 0;
 var dead = 3;

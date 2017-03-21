@@ -13,6 +13,7 @@ func _ready():
 	
 	var pos = Vector2(cos(id * ANG_DIFF), sin(id * ANG_DIFF))
 	
+	
 	var mat = Matrix32()
 	mat.y = -pos
 	mat.x = -Vector2(pos.y, -pos.x)
@@ -28,10 +29,12 @@ func _ready():
 	
 	if (randi() % 2 == 0):
 		add_to_group("bullet A")
+		get_node("./Particles2D").set_color_phase_color(0, Color(.7, 0, 0))
 		
 	else:
 		add_to_group("bullet B")
 		get_node("sprite").set_texture(texture)
+		get_node("./Particles2D").set_color_phase_color(0, Color(0, 0, .7))
 	
 	
 	radius = get_node("circle").get_shape().get_radius()

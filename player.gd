@@ -4,6 +4,7 @@ export(float) var focus_speed = 0.35
 var screen_size
 var center_pos
 var radius
+var mouse_down = false
 
 
 func _ready():
