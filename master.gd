@@ -97,6 +97,7 @@ func check_game_over():
 	#Add game over screen here and remove the quit game logic
 	if dead <= 0:
 		# Do something here. Display GameOver for a moment and quit
+		global.score = score
 		get_node("gameover_text").show()
 		get_tree().change_scene("res://game_over.tscn")
 		

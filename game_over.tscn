@@ -29,4 +29,19 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
+[node name="Label 2" type="Label" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 459.0
+margin/top = 323.0
+margin/right = 550.0
+margin/bottom = 337.0
+text = "Final Score: "
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
 
