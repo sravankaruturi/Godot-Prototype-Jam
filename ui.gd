@@ -16,7 +16,7 @@ func _ready():
 	
 	move_node("play", 0)
 	
-	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 func _input(event):
 	if event.is_action("player_up") && event.is_pressed() && !event.is_echo():

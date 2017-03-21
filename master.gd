@@ -3,6 +3,8 @@ var hit_bullets = []
 var score = 0;
 var dead = 3;
 var bspeed = 100;
+var just_hit = true;
+var hit_timer = 1;
 
 func _ready():
 	randomize()
@@ -22,6 +24,14 @@ func _process(delta):
 	check_game_over()
 	var p_pos = get_node("player").get_pos()
 	var forward = get_node("player").get_transform().y
+	
+	if (just_hit):
+		hit_timer = hit_timer - delta
+		if (hit_timer <= 0):
+			just_hit = false
+			hit_timer = 1
+			get_node("player/Particles2D").hide()
+		
 	for b in hit_bullets:
 		var dir = (b.get_pos() - p_pos).normalized()
 		var check = dir.dot(forward)
@@ -36,6 +46,9 @@ func _process(delta):
 				b.free()
 				dead = dead - 1 
 				get_node("dead").set_text(String(dead))
+				just_hit = true
+				hit_timer = 1
+				get_node("player/Particles2D").show()
 				check_game_over()
 				
 		elif (check <= 0):
