@@ -66,11 +66,10 @@ damp_override/angular = -1.0
 
 [node name="Particles2D" type="Particles2D" parent="player"]
 
-visibility/visible = false
 config/amount = 30
 config/lifetime = 1.03448
 config/time_scale = 0.901488
-config/explosiveness = 0.66
+config/explosiveness = 0.75
 params/direction = 0.0
 params/spread = 180.0
 params/linear_velocity = 84.96
@@ -81,7 +80,7 @@ params/gravity_strength = 0.0
 params/radial_accel = 0.0
 params/tangential_accel = 0.0
 params/damping = 0.0
-params/initial_angle = 0.0
+params/initial_angle = 237.38
 params/initial_size = 13.42
 params/final_size = 1.0
 params/hue_variation = 0.0

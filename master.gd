@@ -4,7 +4,7 @@ var score = 0;
 var dead = 3;
 var bspeed = 100;
 var just_hit = true;
-var hit_timer = 1;
+var hit_timer = .1;
 
 func _ready():
 	randomize()
@@ -25,7 +25,7 @@ func _process(delta):
 	var p_pos = get_node("player").get_pos()
 	var forward = get_node("player").get_transform().y
 	
-	if (just_hit):
+	if (just_hit == true):
 		hit_timer = hit_timer - delta
 		if (hit_timer <= 0):
 			just_hit = false
@@ -46,9 +46,12 @@ func _process(delta):
 				b.free()
 				dead = dead - 1 
 				get_node("dead").set_text(String(dead))
-				just_hit = true
-				hit_timer = 1
-				get_node("player/Particles2D").show()
+				
+				if (just_hit == false):
+					just_hit = true
+					hit_timer = 1
+					get_node("player/Particles2D").show()
+					
 				check_game_over()
 				
 		elif (check <= 0):
@@ -63,6 +66,12 @@ func _process(delta):
 				b.free()
 				dead = dead - 1 
 				get_node("dead").set_text(String(dead))
+				
+				if (just_hit == false):
+					just_hit = true
+					hit_timer = 2
+					get_node("player/Particles2D").show()
+				
 				check_game_over()
 	
 
