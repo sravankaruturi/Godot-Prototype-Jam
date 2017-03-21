@@ -5,6 +5,10 @@ extends Container
 # var b = "textvar"
 
 var index = 0
+var green_play_tex = load("res://play_green.tex")
+var black_play_tex = load("res://play_normal.tex")
+var green_exit_tex = load("res://exit_green.tex")
+var black_exit_tex = load("res://exit_normal.tex")
 
 export var pos_offset = 50;
 
@@ -15,8 +19,12 @@ func _ready():
 	set_fixed_process(true)
 	
 	move_node("play", 0)
+<<<<<<< HEAD
 	
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+=======
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+>>>>>>> origin/master
 
 func _input(event):
 	if event.is_action("player_up") && event.is_pressed() && !event.is_echo():
@@ -39,7 +47,17 @@ func _input(event):
 			
 func move_node(node_name, flag):
 	var x = get_node(node_name)
+	var flag0tex
+	var flag1tex
+	if node_name == "play":
+		flag0tex = green_play_tex
+		flag1tex = black_play_tex
+	elif node_name == "exit":
+		flag0tex = green_exit_tex
+		flag1tex = black_exit_tex
 	if flag == 0:
 		x.set_pos( Vector2(x.get_pos().x - pos_offset, x.get_pos().y ) )
+		x.set_texture(flag0tex)
 	elif flag == 1:
 		x.set_pos( Vector2(x.get_pos().x + pos_offset, x.get_pos().y ) )
+		x.set_texture(flag1tex)
