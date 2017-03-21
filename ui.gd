@@ -19,12 +19,8 @@ func _ready():
 	set_fixed_process(true)
 	
 	move_node("play", 0)
-<<<<<<< HEAD
 	
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-=======
-	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
->>>>>>> origin/master
 
 func _input(event):
 	if event.is_action("player_up") && event.is_pressed() && !event.is_echo():
