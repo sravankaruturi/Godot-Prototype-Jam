@@ -74,5 +74,14 @@ func spawn_bullets():
 func check_game_over():
 	#Add game over screen here and remove the quit game logic
 	if dead <= 0:
-		print(dead)
-		get_tree().change_scene("res://ui.tscn")
+		# Do something here. Display GameOver for a moment and quit
+		get_node("gameover_text").show()
+		get_tree().change_scene("res://game_over.tscn")
+		
+func delay(delay_amount):
+	var t = Timer.new()
+	t.set_wait_time(delay_amount)
+	t.set_one_shot(true)
+	self.add_child(t)
+	t.start()
+	yield(t, "timeout")
