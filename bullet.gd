@@ -23,7 +23,7 @@ func _ready():
 	print(get_transform())
 	
 	pos *= (id + 1) * SPIRAL_DIFF
-	pos += pos.normalized() * (screen_size.length() / 4)
+	pos += pos.normalized() * (screen_size.length() / 2)
 	pos += screen_size / 2
 	set_pos(pos)
 	
