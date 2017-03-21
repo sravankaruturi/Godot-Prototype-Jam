@@ -19,6 +19,7 @@ func _ready():
 
 
 func _process(delta):
+	check_game_over()
 	var p_pos = get_node("player").get_pos()
 	var forward = get_node("player").get_transform().y
 	for b in hit_bullets:
@@ -72,5 +73,6 @@ func spawn_bullets():
 	
 func check_game_over():
 	#Add game over screen here and remove the quit game logic
-	if(dead == 0):
-		get_tree().quit()
+	if dead <= 0:
+		print(dead)
+		get_tree().change_scene("res://ui.tscn")
